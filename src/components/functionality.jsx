@@ -79,15 +79,16 @@ const Functionality = () => {
                     px: "2rem",
                     py: "1.125rem"
                 }}>
-                    <Box display={"flex"}   alignItems={"center"} sx={{
+                    <Box display={"flex"} justifyContent={"space-between"}  alignItems={"center"} sx={{
                         py: "1.5rem",
                         width: "100%",
                         boxSizing: "border-box"
                     }}>
                         <Box className={classes.InputField} sx={{
                             borderRadius: "1000px",
-                            pl: "1rem"
-                        }}> 
+                            pl: "1rem",
+                            width: "80%"
+                        }} display={"flex"} justifyContent={"space-between"}> 
                             <input type="text"  placeholder="Search Location" className="custom-input-field" >
                             </input>
                             <IconButton sx={{
