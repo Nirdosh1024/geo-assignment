@@ -13,6 +13,8 @@ import { ReactComponent as PolygonIcon } from "../assets/polygon.svg";
 import { ReactComponent as ParametersIcon } from "../assets/parameters.svg";
 import { ReactComponent as CalendarIcon } from "../assets/calendar.svg";
 
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
 // date picker imports
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -222,17 +224,29 @@ const Functionality = () => {
                     }}>
                         <Box display={"flex"} alignItems={"center"}>
                             <Typography>From</Typography>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DatePicker />
+                            <LocalizationProvider dateAdapter={AdapterDayjs} sx={{
+                                border: "none"
+                            }}>
+                                <DatePicker sx={{ svg: {
+                                    color: "white.text"
+                                }, input: {
+                                    color: "white.text",
+                                } }} slots={{
+                                    openPickerIcon: KeyboardArrowDownIcon
+                                }}/>
                             </LocalizationProvider>
                         </Box>
 
                         <Box display={"flex"} alignItems={"center"}>
                             <Typography>To</Typography>
-                            <LocalizationProvider dateAdapter={AdapterDayjs} sx={{
-                                color: "white.text"
-                            }}>
-                                <DatePicker />
+                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                <DatePicker sx={{ svg: {
+                                    color: "white.text"
+                                }, input: {
+                                    color: "white.text",
+                                } }} slots={{
+                                    openPickerIcon: KeyboardArrowDownIcon
+                                }}/>
                             </LocalizationProvider>
                         </Box>
                     </Box>
