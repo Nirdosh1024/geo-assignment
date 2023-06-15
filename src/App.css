@@ -17,5 +17,30 @@ body {
     box-sizing: border-box;
 }
 
+.custom-input-field {
+    border: none;
+    outline: none;
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 500;
+}
+
+input[type="text"]{
+    background-color: #1A2737;
+}
 
 
+.select-parameter {
+    background-color: #1A2737;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.48);
+    font-family: "Red Hat Display", sans-serif;
+    border: none;
+    outline: none;
+}
+
+.select-parameter option {
+    padding: 10px 0 10px 23px;
+}

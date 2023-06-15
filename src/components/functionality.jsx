@@ -28,8 +28,15 @@ const parametersArray = [
     "ABC"
 ];
 
+const useStyles = makeStyles({
+    InputField: {
+        border: "0.4px solid rgba(255, 255, 255, 0.16)"
+    }
+})
+
 
 const Functionality = () => {
+    const classes = useStyles()
     const [parameter, setParameter] = useState();
     const handleSelectChange = (e) => {
         console.log(e.target.value)
@@ -72,33 +79,30 @@ const Functionality = () => {
                     px: "2rem",
                     py: "1.125rem"
                 }}>
-                    <Box display={"flex"} alignItems={"center"} sx={{
+                    <Box display={"flex"}   alignItems={"center"} sx={{
                         py: "1.5rem",
                         width: "100%",
                         boxSizing: "border-box"
                     }}>
-                        <TextField label="Search Location" InputProps={{
-                            endAdornment: (
-                                <InputAdornment position="start">
-                                    <IconButton sx={{
-                                        color: "white.text",
-                                        backgroundColor: "#3C4755",
-                                        borderRadius: "50%",
-                                        p: "0.75rem",
-                                        "&:hover": {
-                                            backgroundColor: "#3C4755"
-                                        },
-                                    }}>
-                                        <SearchIcon />
-                                    </IconButton>
-                                </InputAdornment>
-                            ),
-                        }} InputLabelProps={{
-                            style: { color: 'rgba(255, 255, 255, 0.65)' },
-                        }} sx={{
-                            width: "85%"
-                        }}>
-                        </TextField>
+                        <Box className={classes.InputField} sx={{
+                            borderRadius: "1000px",
+                            pl: "1rem"
+                        }}> 
+                            <input type="text"  placeholder="Search Location" className="custom-input-field" >
+                            </input>
+                            <IconButton sx={{
+                                color: "white.text",
+                                backgroundColor: "#3C4755",
+                                borderRadius: "50%",
+                                p: "0.75rem",
+                                ml: "1rem",
+                                "&:hover": {
+                                    backgroundColor: "#3C4755"
+                                },
+                            }}>
+                                <SearchIcon />
+                            </IconButton>
+                        </Box>
                         <IconButton sx={{
                             backgroundColor: "#3C4755",
                             borderRadius: "50%",
@@ -174,19 +178,18 @@ const Functionality = () => {
                         }}>Parameters</Typography>
                     </Box>
 
-                    <FormControl fullWidth>
-                        <InputLabel shrink={false} id="simple-select-label" sx={{
-                            color: "rgba(255, 255, 255, 0.48)",
-                            fontSize: "14px",
-                        }}>Select Parameter</InputLabel>
-                        <Select
-                            labelId="simple-select-label"
-                            id="simple-select"
-                            native
+                    <FormControl fullWidth sx={{
+                        border: "1px solid rgba(255, 255, 255, 0.65)",
+                        borderRadius: "18px",
+                        p: "15px",
+                        boxSizing: "border-box"
+                    }}>
+                        <select
                             value={parameter}
-                            label="Native"
                             onChange={handleSelectChange}
+                            className="select-parameter"
                         >
+                            <option value="" key="placeholder">Select Parameter</option>
                             {parametersArray.map((parameter) => (
                                 <option key={parameter} value={parameter} sx={{
                                     color: "white.text",
@@ -196,7 +199,7 @@ const Functionality = () => {
                                     {parameter}
                                 </option>
                             ))}
-                        </Select>
+                        </select>
                     </FormControl>
 
                     <Box sx={{
